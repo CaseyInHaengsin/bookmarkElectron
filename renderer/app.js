@@ -1,4 +1,5 @@
 
+const { ipcRenderer } = require('electron');
 
 let showModal = document.getElementById('show-modal');
 let closeModal = document.getElementById('close-modal');
@@ -21,7 +22,10 @@ closeModal.addEventListener('click', (e) => {
 
 addItem.addEventListener('click', (e) => {
     if (url.value){
-        console.log(url.value);
+        
+        ipcRenderer.send('new-item', url.value);
+
+        //Send new item url to main procress
         url.value = '';
     }
 });
@@ -30,5 +34,9 @@ url.addEventListener('keyup', (e) => {
     if (e.key === 'Enter'){
         addItem.click();
     }
+});
+
+ipcRenderer.on('new-item-success', (e, data) => {
+    console.log(data);
 })
 

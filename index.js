@@ -1,5 +1,5 @@
 // Modules
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain } = require('electron')
 const windowStateKeeper = require('electron-window-state')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -49,4 +49,12 @@ app.on('window-all-closed', () => {
 // When app icon is clicked and app is running, (macOS) recreate the BrowserWindow
 app.on('activate', () => {
   if (mainWindow === null) createWindow()
+})
+
+
+ipcMain.on('new-item', (e, itemurl) => {
+    console.log(itemurl);
+    setTimeout(() => {
+        e.sender.send('new-item-success', 'new item from main procress')
+    }, 20000)
 })
