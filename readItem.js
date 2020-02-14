@@ -15,7 +15,7 @@ module.exports = (url, callback) => {
     height: 500,
     show: false,
     webPreferences: {
-      offscreen: true
+      offscreen: false
     }
   })
 
@@ -24,18 +24,14 @@ module.exports = (url, callback) => {
   //https://pypi.org/project/csv-diff/
 
   // Wait for content to finish loading
-  offscreenWindow.webContents.on('did-stop-load', e => {
+  offscreenWindow.webContents.on('did-finish-load', e => {
     
     // Get page title
     let title = offscreenWindow.getTitle()
     
-
-    // Get screenshot (thumbnail)
-    offscreenWindow.webContents.capturePage((image) => {
-        console.log(image);
-        console.log('made it to image capture');
-      // Get image as dataURL
-      let screenshot = image.toDataURL()
+    offscreenWindow.webContents.capturePage().then((image) => {
+      let screenshot = image.toDataURL();
+      console.log('made it')
 
       // Execute callback with new item object
       callback({ title, screenshot, url })
@@ -44,5 +40,19 @@ module.exports = (url, callback) => {
       offscreenWindow.close()
       offscreenWindow = null
     })
+    // Get screenshot (thumbnail)
+    // offscreenWindow.webContents.capturePage((image) => {
+    //     console.log(image);
+    //     console.log('made it to image capture');
+    //   // Get image as dataURL
+    //   let screenshot = image.toDataURL()
+
+    //   // Execute callback with new item object
+    //   callback({ title, screenshot, url })
+
+    //   // Clean up
+    //   offscreenWindow.close()
+    //   offscreenWindow = null
+    // })
   })
 }
