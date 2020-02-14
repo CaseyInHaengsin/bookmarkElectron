@@ -54,7 +54,7 @@ addItem.addEventListener('click', e => {
 // Listen for new item from main process
 ipcRenderer.on('new-item-success', (e, newItem) => {
   // Enable buttons
-  items.addItem(newItem);
+  items.addItem(newItem, true);
   toggleModalButtons()
 
   // Hide modal and clear value
