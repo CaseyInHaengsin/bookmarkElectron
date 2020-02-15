@@ -6,6 +6,10 @@ exports.save = () => {
     localStorage.setItem('readit-items', JSON.stringify(this.storage));
 }
 
+exports.select = (e) => {
+    document.getElementsByClassName('read-item selected')
+}
+
 exports.addItem = (item, isNew=false) => {
     let itemNode = document.createElement('div');
     itemNode.setAttribute('class', 'read-item');
