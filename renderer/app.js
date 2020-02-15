@@ -14,10 +14,10 @@ let showModal = document.getElementById('show-modal'),
 let search = document.getElementById('search');
 
 search.addEventListener('keyup', (e) => {
-  Array.from(document.getElementsByClassName('read-item').forEach((item) => {
-      let hasMatch = item.innerText.toLowerCase().includes(search.value);
+  Array.from(document.getElementsByClassName('read-item')).forEach((item) => {
+    let hasMatch = item.innerText.toLowerCase().includes(search.value);
       item.style.display = hasMatch ? 'flex': 'None';
-  }))
+  })
 })
 // Disable & Enable modal buttons
 const toggleModalButtons = () => {
