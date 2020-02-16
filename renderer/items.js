@@ -56,7 +56,7 @@ exports.open = () => {
 
     let selectedItem = document.getElementsByClassName('read-item selected')[0];
     let contentUrl = selectedItem.dataset.url;
-    let readerWin = window.open(contentUrl, '');
+    let readerWin = window.open(contentUrl, '', `maxWidth=2000, maxHeight=2000, width=1200, height=800, backgroundColor=#DEDEDE, nodeIntegration=0, contextIsolation=1` );
     console.log(contentUrl);
 
 
