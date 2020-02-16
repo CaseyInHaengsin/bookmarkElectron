@@ -4,6 +4,7 @@ const {ipcRenderer} = require('electron')
 const items = require('./items');
 
 
+
 // Dom Nodes
 let showModal = document.getElementById('show-modal'),
     closeModal = document.getElementById('close-modal'),
@@ -13,12 +14,20 @@ let showModal = document.getElementById('show-modal'),
 
 let search = document.getElementById('search');
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown'){
+    items.changeSelection(e.key);
+  }
+})
+
 search.addEventListener('keyup', (e) => {
   Array.from(document.getElementsByClassName('read-item')).forEach((item) => {
     let hasMatch = item.innerText.toLowerCase().includes(search.value);
       item.style.display = hasMatch ? 'flex': 'None';
   })
 })
+
+
 // Disable & Enable modal buttons
 const toggleModalButtons = () => {
 
