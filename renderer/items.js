@@ -38,6 +38,7 @@ exports.addItem = (item, isNew=false) => {
 
 
     itemNode.addEventListener('click', this.select);
+    itemNode.addEventListener('dblclick', this.open);
 
 
     if (document.getElementsByClassName('read-item').length === 1){
@@ -53,7 +54,7 @@ exports.addItem = (item, isNew=false) => {
 exports.open = () => {
     if (!this.storage.length) return;
 
-    let selectedItem = document.getElementsByClassName('read-item selected')[0].classList.remove('selected')[0];
+    let selectedItem = document.getElementsByClassName('read-item selected')[0];
     let contentUrl = selectedItem.dataset.url;
     console.log(contentUrl);
 

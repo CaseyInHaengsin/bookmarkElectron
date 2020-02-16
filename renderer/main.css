@@ -116,5 +116,6 @@ main {
 .read-item img {
   width: 20%;
   margin-right: 25px;
+  -webkit-user-select: none;
 
 }
