@@ -10,6 +10,11 @@ const template = [
                 label: 'Add New',
                 click: window.newItem,
                 accelerator: 'CmdOrCtrl+N'
+            },
+            {
+                label: 'Read Item', 
+                accelerator: 'CmdOrCtrl+Enter',
+                click: window.openItem
             }
         ]
     },

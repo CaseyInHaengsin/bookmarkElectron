@@ -20,6 +20,8 @@ window.newItem = () => {
   showModal.click();
 }
 
+window.openItem = items.open
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowUp' || e.key === 'ArrowDown'){
     items.changeSelection(e.key);
