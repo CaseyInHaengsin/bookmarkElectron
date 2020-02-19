@@ -5,7 +5,13 @@ const { remote, shell } = require('electron');
 const template = [
     {
         label: 'Items', 
-        submenu: []
+        submenu: [
+            {
+                label: 'Add New',
+                click: window.newItem,
+                accelerator: 'CmdOrCtrl+N'
+            }
+        ]
     },
     {
         role: 'editMenu'

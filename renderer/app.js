@@ -12,7 +12,13 @@ let showModal = document.getElementById('show-modal'),
     addItem = document.getElementById('add-item'),
     itemUrl = document.getElementById('url')
 
+
+
 let search = document.getElementById('search');
+
+window.newItem = () => {
+  showModal.click();
+}
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowUp' || e.key === 'ArrowDown'){
