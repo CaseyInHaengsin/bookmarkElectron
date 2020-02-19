@@ -1,4 +1,4 @@
-import { read } from "fs";
+//import { read } from "fs";
 
 let readitClose = document.createElement('div');
 
@@ -15,6 +15,9 @@ readitClose.style.borderRadius = '5px';
 readitClose.style.cursor = 'default';
 readitClose.style.boxShadow = '2px 2px 2px rbg(0,0,0,0.2)';
 
+readitClose.onClick = (e) => {
+    window.opener.postMessage('item-done')
+}
 
 document.getElementsByTagName('body')[0].appendChild(readitClose);
 

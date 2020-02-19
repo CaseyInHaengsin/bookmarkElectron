@@ -11,6 +11,18 @@ fs.readFile(`${__dirname}/reader.js`, (error, data) => {
 
 exports.storage = JSON.parse(localStorage.getItem('readit-items')) || []
 
+window.addEventListener('message', (e) => {
+
+});
+
+exports.getSelectedItem = () => {
+    let currentItem = document.getElementsByClassName('read-it selected')[0];
+    let itemIndex = 0;
+    let child = currentItem;
+
+    while ((child = child.previousElementSibling) != null) itemIndex++;
+};
+
 exports.save = () => {
     localStorage.setItem('readit-items', JSON.stringify(this.storage));
 }
