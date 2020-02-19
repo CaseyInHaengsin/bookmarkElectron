@@ -16,5 +16,13 @@
   "devDependencies": {
     "electron": "^8.0.1",
     "electron-builder": "^22.3.2"
+  },
+  "build": {
+    "appId": "com.caseyjrowley.readit",
+    "copyright": "I am unsure",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    }
   }
 }
